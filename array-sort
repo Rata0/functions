@@ -1,0 +1,20 @@
+// Quicksort recursion 
+const values = [5, 10, 12, 9, 18, 20, 56, 44, 48];
+
+const sort = (array) => {
+    if (array.length < 2) {
+        return array
+    }
+    const less = [];
+    const more = [];
+    const supportElement = array[0];
+    for (let i = 1; i < array.length; i += 1) {
+        if (array[i] < supportElement) {
+            less.push(array[i]);
+        } else {
+            more.push(array[i]);
+        }
+    }
+    return sort(less).concat(supportElement, sort(more));
+};
+console.log(sort(values)); // [5,  9, 10, 12, 18, 20, 44, 48, 56];
